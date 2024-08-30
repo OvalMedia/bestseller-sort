@@ -1,0 +1,21 @@
+{
+    "name": "ovalmedia/bestseller-sort",
+    "description": "Aggregate the amount of units sold in a product attribute and use that as a sorting option.",
+    "type": "magento2-module",
+    "license": "MIT",
+    "autoload": {
+      "files": [
+        "src/registration.php"
+      ],
+      "psr-4": {
+          "OM\\BestsellerSort\\": "src/"
+      }
+    },
+    "authors": [
+        {
+            "name": "Ole Hornauer",
+            "email": "oh@oval-media.de"
+        }
+    ],
+    "require": {}
+}
