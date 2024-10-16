@@ -40,17 +40,17 @@ class SetupPatch implements DataPatchInterface
     {
         $this->_moduleDataSetup->getConnection()->startSetup();
 
-        $eavSetup = $this->_eavSetupFactory->create(['setup' => $this->moduleDataSetup]);
+        $eavSetup = $this->_eavSetupFactory->create(['setup' => $this->_moduleDataSetup]);
 
-        $eavSetup->addAttribute('catalog_product', 'units_sold', [
-            'type' => 'text',
+        $eavSetup->addAttribute('catalog_product', 'bestseller', [
+            'type' => 'int',
             'backend' => '',
             'frontend' => '',
-            'label' => 'Units sold',
+            'label' => 'Bestseller',
             'input' => 'text',
             'class' => '',
             'source' => '',
-            'global' => ScopedAttributeInterface::SCOPE_GLOBAL,
+            'global' => ScopedAttributeInterface::SCOPE_STORE,
             'visible' => true,
             'required' => false,
             'user_defined' => false,
@@ -60,9 +60,11 @@ class SetupPatch implements DataPatchInterface
             'comparable' => false,
             'visible_on_front' => false,
             'used_in_product_listing' => true,
+            'used_for_sort_by' => true,
             'unique' => false,
             'apply_to' => '',
-            'group' => 'Bestsellers'
+            'group' => 'Bestsellers',
+            'note' => 'Aggregate amount of units sold within a defined timeframe'
         ]);
 
         $entityTypeId = $eavSetup->getEntityTypeId(\Magento\Catalog\Model\Product::ENTITY);
@@ -78,7 +80,7 @@ class SetupPatch implements DataPatchInterface
                 $entityTypeId,
                 $attributeSetId,
                 $groupId,
-                'units_sold',
+                'bestseller',
                 null
             );
         }

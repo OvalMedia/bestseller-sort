@@ -3,7 +3,7 @@
     <type name="Magento\Framework\Console\CommandList">
         <arguments>
             <argument name="commands" xsi:type="array">
-                <item name="bestseller_sort_aggregate" xsi:type="object">OM\BestsellerSort\Console\Aggregate</item>
+                <item name="om_bestseller_sort_aggregate_command" xsi:type="object">OM\BestsellerSort\Console\AggregateCommand</item>
             </argument>
         </arguments>
     </type>
